@@ -1,0 +1,16 @@
+./Allclean
+
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial run functions
+. $WM_PROJECT_DIR/bin/tools/RunFunctions
+
+runApplication ideasUnvToFoam Mesh_1.unv
+runApplication createPatch -overwrite
+runApplication foamRun
+
+touch SALOME.foam
+paraview &
+
+#------------------------------------------------------------------------------

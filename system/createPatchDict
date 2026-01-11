@@ -1,0 +1,49 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  11
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    object      createPatchDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+patches
+(
+    {
+        // Name of new patch
+        name BackFront;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {
+            type empty; // To change FrontBack from patch to empty 
+        }		// as we want a 2D simulation.
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+	patches (FrontBack);
+    }
+
+    {
+        // Name of new patch
+        name Walls;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {
+            type wall;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+	patches (Obstacle);
+    }
+);
+
+// ************************************************************************* //
