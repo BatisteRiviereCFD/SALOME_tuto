@@ -12,7 +12,7 @@ SALOME for meshing [EN] :
 https://www.salome-platform.org/
 
 
-#Contact
+# Contact
 LinkedIn  :
 https://www.linkedin.com/in/batiste-rivi%C3%A8re-11a522273/
 
